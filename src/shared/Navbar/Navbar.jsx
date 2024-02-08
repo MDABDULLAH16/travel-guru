@@ -5,9 +5,9 @@ import logo2 from "../../assets/logo2.png";
 
 const Navbar = () => {
   const location = useLocation();
-  if (location.pathname === "/login" || "/register") {
-    console.log("log or reg", location.pathname);
-  }
+  // if (location.pathname === "/login" || "/register") {
+  //   console.log("log or reg", location.pathname);
+  // }
 
   return (
     <div className='flex justify-between  items-center pt-6 mx-12'>

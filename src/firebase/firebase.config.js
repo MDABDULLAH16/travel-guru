@@ -2,15 +2,15 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-console.log("loggin from firebase", import.meta.env.VITE_APIKEY);
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  VITE_APIKEY: import.meta.env.VITE_APIKEY,
-  VITE_AUTHDOMAIN: import.meta.env.VITE_AUTHDOMAIN,
-  VITE_PROJECTID: import.meta.env.VITE_PROJECTID,
-  VITE_STORAGEBUCKET: import.meta.env.VITE_STORAGEBUCKET,
-  VITE_MESSAGINGSENDERID: import.meta.env.VITE_MESSAGINGSENDERID,
-  VITE_APPID: import.meta.env.VITE_APPID,
+  apiKey: "AIzaSyC-peKfaq8qEMeucCnMS9RAkShLuZ569Qw",
+  authDomain: "travel-guru-b8.firebaseapp.com",
+  projectId: "travel-guru-b8",
+  storageBucket: "travel-guru-b8.appspot.com",
+  messagingSenderId: "352518348087",
+  appId: "1:352518348087:web:e98f66445780293db24eb2",
 };
 
 // Initialize Firebase

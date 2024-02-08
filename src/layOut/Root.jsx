@@ -1,11 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../shared/Navbar/Navbar";
-import rectangle1 from "../../public/images/rectangle1.png";
 
 const Root = () => {
   const divStyle = {
-    backgroundImage: "url(../../../../public/images/rectangle1.png)",
+    backgroundImage: "url(../../../../public/rectangle1.png)",
     backgroundSize: "cover",
     backgroundPosition: "center",
 
@@ -13,7 +12,7 @@ const Root = () => {
   };
   return (
     <div style={divStyle}>
-      <div className='bg-black bg-opacity-70 text-white h-full'>
+      <div className='bg-black bg-opacity-50 text-white h-full'>
         <Navbar></Navbar>
         <Outlet></Outlet>
       </div>
