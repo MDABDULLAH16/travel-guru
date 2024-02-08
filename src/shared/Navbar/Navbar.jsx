@@ -1,11 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import logo2 from "../../assets/logo2.png";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
-    <div className='flex justify-between text-white items-center pt-10 mx-12'>
-      <img className='h-14 ' src={logo} alt='' />
+    <div className='flex justify-between  items-center pt-10 mx-12'>
+      <Link to='/'>
+        <img
+          className='h-14 '
+          src={location.pathname === "/login" ? logo2 : logo}
+          alt=''
+        />
+      </Link>
 
       <div className='font-semibold'>
         <Link className='mr-12'>News</Link>

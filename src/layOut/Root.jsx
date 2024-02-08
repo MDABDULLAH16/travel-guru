@@ -13,7 +13,7 @@ const Root = () => {
   };
   return (
     <div style={divStyle}>
-      <div className='bg-black bg-opacity-70 h-full'>
+      <div className='bg-black bg-opacity-70 text-white h-full'>
         <Navbar></Navbar>
         <Outlet></Outlet>
       </div>
