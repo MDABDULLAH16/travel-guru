@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "../../shared/Navbar/Navbar";
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100  min-h-screen '>
       <Navbar></Navbar>
-      <div className='flex justify-center items-center min-h-screen  '>
+      <div className='flex justify-center items-center mt-12'>
         <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
           <h2 className='text-3xl text-black font-bold text-center mb-6'>
             Login
@@ -46,6 +48,12 @@ const Login = () => {
             >
               Log In
             </button>
+            <p>
+              Are You New On Travel Guru?{" "}
+              <Link to='/register' className='text-blue-500 font-bold'>
+                Register
+              </Link>
+            </p>
           </form>
         </div>
       </div>

@@ -5,13 +5,16 @@ import logo2 from "../../assets/logo2.png";
 
 const Navbar = () => {
   const location = useLocation();
+  if (location.pathname === "/login" || "/register") {
+    console.log("log or reg", location.pathname);
+  }
 
   return (
-    <div className='flex justify-between  items-center pt-10 mx-12'>
+    <div className='flex justify-between  items-center pt-6 mx-12'>
       <Link to='/'>
         <img
           className='h-14 '
-          src={location.pathname === "/login" ? logo2 : logo}
+          src={location.pathname === "/" ? logo : logo2}
           alt=''
         />
       </Link>
