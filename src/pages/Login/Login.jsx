@@ -1,8 +1,42 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import Navbar from "../../shared/Navbar/Navbar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const { userLogin, resetPassword } = useContext(AuthContext);
+  const emailRef = useRef();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+
+    userLogin(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        // Clear input fields after successful login
+        // alert("User login done");
+        // This will reset the form and clear all input fields
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    e.currentTarget.reset();
+  };
+  const handleResetEmail = (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    resetPassword(email)
+      .then(() => {
+        alert("check Your Email for reset password!!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className='bg-gray-100  min-h-screen '>
       <Navbar></Navbar>
@@ -11,20 +45,21 @@ const Login = () => {
           <h2 className='text-3xl text-black font-bold text-center mb-6'>
             Login
           </h2>
-          <form className='space-y-4'>
+          <form onSubmit={handleLogin} className='space-y-4'>
             <div>
               <label
                 htmlFor='username'
                 className='block text-gray-700 text-sm font-semibold mb-2'
               >
-                Username
+                Email
               </label>
               <input
-                type='text'
+                ref={emailRef}
+                type='email'
                 id='username'
-                name='username'
+                name='email'
                 className='w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500'
-                placeholder='Enter your username'
+                placeholder='Enter your Email'
               />
             </div>
             <div>
@@ -41,6 +76,18 @@ const Login = () => {
                 className='w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500'
                 placeholder='Enter your password'
               />
+            </div>
+            <div className='flex justify-between'>
+              <div className='flex items-center gap-2  '>
+                <input type='checkbox' name='checked' id='checkbox' />
+                <label htmlFor='checkbox'>Remember me</label>
+              </div>
+              <Link
+                onClick={handleResetEmail}
+                className='underline text-yellow-600'
+              >
+                Forger Password?
+              </Link>
             </div>
             <button
               type='submit'

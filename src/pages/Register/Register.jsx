@@ -30,6 +30,7 @@ const Register = () => {
           console.log(error.message);
         });
     });
+    e.currentTarget.reset();
   };
 
   return (
